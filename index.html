@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TopShot Scraper js</title>
+    <style>
+        .src {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        .src div {
+            flex: 1 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: stretch;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: stretch;
+        }
+
+        .result--download {
+            margin-top: 16px;
+        }
+
+        #itemsPerFile {
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🏀 TopShot Scraper js</h1>
+
+    <div class="src">
+        <div>
+            <h2>JSON search results</h2>
+            <ol>
+                <li>open https://nbatopshot.com/search</li>
+                <li>open Chrome dev tools by pressing F12</li>
+                <li>open the Network tab of the Chrome dev tools</li>
+                <li>find the "filter" input field and enter <pre>url:https://nbatopshot.com/marketplace/graphql?SearchEditionListingsDefault</pre></li>
+                <li>search for a given player in the TopShot search box</li>
+                <li>click on the line that appeared in the Network tab</li>
+                <li>click on Response</li>
+                <li>copy paste the JSON response you found</li>
+                <li>you will get CSV data below, that you can paste in your spreadsheet (and then "split text to columns")</li>
+                <li>scroll down on the TopShot result page and repeat as much as needed</li>
+                <li>search for another player and repeat</li>
+            </ol>
+            
+            <textarea id="search-results" cols="30" rows="10"></textarea>
+        </div>
+    </div>
+
+    <br>
+
+    <h2>Result</h2>
+    <pre>set.flowName,play.stats.playerName,play.stats.playCategory,play.stats.teamAtMoment,play.stats.nbaSeason,setPlay.circulations.circulationCount,setPlay.circulations.forSaleByCollectors,setPlay.circulations.ownedByCollectors,priceRange.min,averageSaleData.averagePrice,averageSaleData.numSales</pre>
+    <textarea id="result" disabled cols="30" rows="20"></textarea>
+
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>
